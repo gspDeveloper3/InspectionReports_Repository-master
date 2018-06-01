@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Pikaday</id>
+    <version>1.4.0</version>
+    <title>Pikaday</title>
+    <authors>David Bushell &amp; Ramiro Rikkert</authors>
+    <owners>David Bushell &amp; Ramiro Rikkert</owners>
+    <licenseUrl>http://opensource.org/licenses/BSD-3-Clause</licenseUrl>
+    <projectUrl>https://github.com/dbushell/Pikaday</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A refreshing JavaScript Datepicker — lightweight, no dependencies, modular CSS</description>
+    <summary>A refreshing JavaScript Datepicker — lightweight, no dependencies, modular CSS</summary>
+    <copyright>The BSD 3-Clause License, The MIT License (MIT)</copyright>
+  </metadata>
+</package>

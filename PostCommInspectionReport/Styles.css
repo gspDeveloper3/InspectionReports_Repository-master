@@ -1,0 +1,141 @@
+﻿body {
+    font-size: 0.8em;
+    font-family: Verdana;
+    padding: 0px;
+    margin: 0px;
+    background-color: #D8D8D8;
+}
+
+/******************************************************************* Master Page styles */
+
+.header {
+    background-position-x: right;
+    background-repeat: repeat-x;
+    width: 100%;
+}
+
+.headerNavFirst {
+    margin-left: 97px;
+}
+
+.headerNav {
+    list-style-type: none;
+    margin: 0px;
+    padding: 5px;
+    overflow: hidden;
+    background-color: #808080;
+}
+
+    .headerNav li {
+        float: left;
+    }
+
+        .headerNav li a {
+            display: block;
+            color: #F0F0F0;
+            text-align: center;
+            padding: 11px 16px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+            .headerNav li a:hover {
+                background-color: #484848;
+            }
+
+.highlightedNav {
+    background-color: #484848;
+}
+
+.masterPageContent {
+    margin: 0px auto;
+    background-color: #F0F0F0;
+    min-height: 400px;
+    width: 1427px;
+    padding-top: 37px;
+    padding-left: 27px;
+    border-left-color: #808080;
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-right-color: #808080;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-bottom-color: #808080;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    padding-bottom: 57px;
+}
+
+/******************************************************************* Content Page styles */
+
+h1 {
+    font-size: 1.7em;
+    color: #900000;
+}
+
+.divTable {
+    display: table;
+    width: 100%;
+            
+}
+
+.divTableRow {
+    display: table-row;
+    background-color: #FFFFFF;
+}
+
+.divTableCell, .divTableHead {
+    border: 1px solid #999999;
+    display: table-cell;
+    padding: 3px 10px;
+}
+
+.divTableCellScore {
+    border: 1px solid #999999;
+    display: table-cell;
+    padding: 3px 10px;
+    width: 207px;
+}
+
+.divTableBody {
+    display: table-row-group;
+            
+}
+
+.divTableCellTitle {
+    font-weight: bold;
+    margin-left: 7px;
+}
+
+h2 {
+    font-size: 1.3em;
+    color: #900000;
+}
+
+h3 {
+    font-size: 1.0em;
+    margin-top: 27px;
+}
+
+.button {
+    background-color: #484848;
+    border: none;
+    color: white;
+    padding: 7px 17px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #808080;
+}
+/**/
+.tableComparisons {
+    display: none;
+}

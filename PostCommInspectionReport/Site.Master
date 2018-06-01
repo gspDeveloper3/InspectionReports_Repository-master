@@ -1,0 +1,91 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="PostCommInspectionReport.Site" %>
+
+<%@ Register Assembly="ASPNetSpell" Namespace="ASPNetSpell" TagPrefix="ASPNetSpell" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <%--<meta http-equiv="x-ua-compatible" content="IE=11" />--%>
+    <title>GSP - Monthly Inspection Report</title>    
+    <script src="~/Scripts/customValidation.js"></script>
+     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE" />
+   
+   <%-- <script src="Scripts/jquery-3.2.1.js"></script>--%>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="Styles.css" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+ <%--   <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/jquery-3.2.1.js"></script>--%>
+    
+    <script type="text/javascript">
+        function highlightNav() {
+            var selectedPage = window.location.pathname.split("/").pop();
+            switch (selectedPage) {
+                case "Default.aspx":
+                    var e = document.getElementById("hlHome");
+                    e.className = "highlightedNav";
+                    break;
+                case "PostInspectionReport.aspx":
+                    var e = document.getElementById("hlPOSTInspection");
+                    e.className = "highlightedNav";
+                    break;
+                case "PostInspectionGrid.aspx":
+                    var e = document.getElementById("hlPOSTInspectionGrid");
+                    e.className = "highlightedNav";
+                    break;
+                case "ComInspectionReport.aspx":
+                    var e = document.getElementById("h1ComInspectionDefault");
+                    e.className = "highlightedNav";
+                    break;
+                case "ComInspectionGrid.aspx":
+                    var e = document.getElementById("h1ComInspectionGrid");
+                    e.className = "highlightedNav";
+                    break;
+            }
+        }
+    </script>
+   
+</head>
+<body onload="highlightNav()" style="background-color:#BDBDBD">
+    <form id="form1" runat="server" class="form-inline">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div class="container-fluid" style="background-image: url(~/Images/DPS_global_graphic3.jpg); width:1430px; margin: 0 auto;">
+            <div>
+                <asp:Image ID="imgLogo" runat="server" ImageUrl="~/Images/DPS_logo.gif" ImageAlign="Middle" />
+                <span style="font-size: 1.8em; color: #000000;">GSP - Monthly Inspection Report</span>
+            </div>
+        </div>
+
+        <ul class="headerNav" style="width:1429.9px; margin: 0 auto;">
+            <li class="headerNavFirst">
+                <asp:HyperLink ID="hlHome" runat="server" Text="HOME" NavigateUrl="Default.aspx" /></li>
+            <li>
+                <asp:HyperLink ID="hlPOSTInspection" runat="server" Text="POST INSPECTION REPORT" NavigateUrl="~/PostInspectionReport.aspx" /></li>
+            <li>
+                <asp:HyperLink ID="hlPOSTInspectionGrid" runat="server" Text="POST INSPECTION REPORT LIST" NavigateUrl="~/PostInspectionGrid.aspx" /></li>
+            <li>
+                <asp:HyperLink ID="h1ComInspectionDefault" runat="server" Text="COM INSPECTION REPORT" NavigateUrl="ComInspectionReport/ComInspectionReport.aspx" /></li>
+            <li>
+                <asp:HyperLink ID="h1ComInspectionGrid" runat="server" Text="COM INSPECTION REPORT LIST" NavigateUrl="ComInspectionReport/ComInspectionGrid.aspx" /></li>
+            <li><asp:Label runat="server" ID="lblUser" Height="64px" Width="103px" ForeColor="White"></asp:Label></li>
+        </ul>
+        <div class="masterPageContent"  style="width:1430px; margin: 0 auto;">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        	<div>
+                <footer style="width:1429.9px; margin: 0 auto; font-size:larger; font-weight:bolder">
+                    <div class="content-wrapper">
+                    <div class="float-left">
+                        <p>&copy; 2017 - GADPS</p>
+                    </div>
+                </div>
+                </footer>
+
+        	</div>
+
+    </form>
+</body>
+</html>
