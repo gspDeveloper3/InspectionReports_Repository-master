@@ -35,8 +35,8 @@ namespace PostCommInspectionReport.ComInspectionReport
             string user = User.Identity.Name;
 
             #region Getinfo
-            //string mainuser = user.Substring(6);
-            string mainuser = "dloyd";
+            string mainuser = user.Substring(6);
+            //string mainuser = "dloyd";
             //user1.Text = "Welcome " + mainuser + "!";
             datevalue.Text = DateTime.Now.ToString("MM-dd-yyyy");
             SqlConnection connection1 = new SqlConnection(realidentity);
@@ -1065,344 +1065,347 @@ namespace PostCommInspectionReport.ComInspectionReport
                         this.Button1.Visible = false;
                         this.troopcom.Visible = false;
                         this.hdrLabel.InnerText = "COMMUNCICATION INSPECTION REPORT--Major";
-                        this.reportid.Text = Session["RecordID"].ToString();
-                        this.lowerformdisable();
-                        SqlConnection connection3 = new SqlConnection(this.con1);
-                        connection3.Open();
-                        SqlDataReader sqlDataReader3 = new SqlCommand("SELECT * FROM CommInspectionReport where  ReportID='" + (string)this.Session["RecordID"] + "'", connection3).ExecuteReader();
-                        while (sqlDataReader3.Read())
+                        if (this.Session["RecordID"] != null)
                         {
-                            this.pp.Text = sqlDataReader3["PersonnelPresent"].ToString();
-                            switch (sqlDataReader3["RecordsAndReports"].ToString())
+                            this.reportid.Text = Session["RecordID"].ToString();
+                            this.lowerformdisable();
+                            SqlConnection connection3 = new SqlConnection(this.con1);
+                            connection3.Open();
+                            SqlDataReader sqlDataReader3 = new SqlCommand("SELECT * FROM CommInspectionReport where  ReportID='" + (string)this.Session["RecordID"] + "'", connection3).ExecuteReader();
+                            while (sqlDataReader3.Read())
                             {
-                                case "Execellent":
-                                    this.record.Checked = true;
-                                    this.r1.Checked = false;
-                                    this.r2.Checked = false;
-                                    this.r3.Checked = false;
-                                    break;
-                                case "Very Satisfactory":
-                                    this.record.Checked = false;
-                                    this.r1.Checked = true;
-                                    this.r2.Checked = false;
-                                    this.r3.Checked = false;
-                                    break;
-                                case "Satisfactory":
-                                    this.record.Checked = false;
-                                    this.r1.Checked = false;
-                                    this.r2.Checked = true;
-                                    this.r3.Checked = false;
-                                    break;
-                                case "UnSatisfactory":
-                                    this.record.Checked = false;
-                                    this.r1.Checked = false;
-                                    this.r2.Checked = false;
-                                    this.r3.Checked = true;
-                                    break;
+                                this.pp.Text = sqlDataReader3["PersonnelPresent"].ToString();
+                                switch (sqlDataReader3["RecordsAndReports"].ToString())
+                                {
+                                    case "Execellent":
+                                        this.record.Checked = true;
+                                        this.r1.Checked = false;
+                                        this.r2.Checked = false;
+                                        this.r3.Checked = false;
+                                        break;
+                                    case "Very Satisfactory":
+                                        this.record.Checked = false;
+                                        this.r1.Checked = true;
+                                        this.r2.Checked = false;
+                                        this.r3.Checked = false;
+                                        break;
+                                    case "Satisfactory":
+                                        this.record.Checked = false;
+                                        this.r1.Checked = false;
+                                        this.r2.Checked = true;
+                                        this.r3.Checked = false;
+                                        break;
+                                    case "UnSatisfactory":
+                                        this.record.Checked = false;
+                                        this.r1.Checked = false;
+                                        this.r2.Checked = false;
+                                        this.r3.Checked = true;
+                                        break;
+                                }
+                                switch (sqlDataReader3["EmpPerformanceMgt"].ToString())
+                                {
+                                    case "Execellent":
+                                        this.employee.Checked = true;
+                                        this.e1.Checked = false;
+                                        this.e2.Checked = false;
+                                        this.e3.Checked = false;
+                                        break;
+                                    case "Very Satisfactory":
+                                        this.employee.Checked = false;
+                                        this.e1.Checked = true;
+                                        this.e2.Checked = false;
+                                        this.e3.Checked = false;
+                                        break;
+                                    case "Satisfactory":
+                                        this.employee.Checked = false;
+                                        this.e1.Checked = false;
+                                        this.e2.Checked = true;
+                                        this.e3.Checked = false;
+                                        break;
+                                    case "UnSatisfactory":
+                                        this.employee.Checked = false;
+                                        this.e1.Checked = false;
+                                        this.e2.Checked = false;
+                                        this.e3.Checked = true;
+                                        break;
+                                }
+                                switch (sqlDataReader3["SchAndManAllocation"].ToString())
+                                {
+                                    case "Execellent":
+                                        this.manpower.Checked = true;
+                                        this.m1.Checked = false;
+                                        this.m2.Checked = false;
+                                        this.m3.Checked = false;
+                                        break;
+                                    case "Very Satisfactory":
+                                        this.manpower.Checked = false;
+                                        this.m1.Checked = true;
+                                        this.m2.Checked = false;
+                                        this.m3.Checked = false;
+                                        break;
+                                    case "Satisfactory":
+                                        this.manpower.Checked = false;
+                                        this.m1.Checked = false;
+                                        this.m2.Checked = true;
+                                        this.m3.Checked = false;
+                                        break;
+                                    case "UnSatisfactory":
+                                        this.manpower.Checked = false;
+                                        this.m1.Checked = false;
+                                        this.m2.Checked = false;
+                                        this.m3.Checked = true;
+                                        break;
+                                }
+                                switch (sqlDataReader3["SchAndManAllocation"].ToString())
+                                {
+                                    case "Execellent":
+                                        this.manpower.Checked = true;
+                                        this.m1.Checked = false;
+                                        this.m2.Checked = false;
+                                        this.m3.Checked = false;
+                                        break;
+                                    case "Very Satisfactory":
+                                        this.manpower.Checked = false;
+                                        this.m1.Checked = true;
+                                        this.m2.Checked = false;
+                                        this.m3.Checked = false;
+                                        break;
+                                    case "Satisfactory":
+                                        this.manpower.Checked = false;
+                                        this.m1.Checked = false;
+                                        this.m2.Checked = true;
+                                        this.m3.Checked = false;
+                                        break;
+                                    case "UnSatisfactory":
+                                        this.manpower.Checked = false;
+                                        this.m1.Checked = false;
+                                        this.m2.Checked = false;
+                                        this.m3.Checked = true;
+                                        break;
+                                }
+                                switch (sqlDataReader3["ComCenterCleanAndMain"].ToString())
+                                {
+                                    case "Execellent":
+                                        this.com.Checked = true;
+                                        this.c1.Checked = false;
+                                        this.c2.Checked = false;
+                                        this.c3.Checked = false;
+                                        break;
+                                    case "Very Satisfactory":
+                                        this.com.Checked = false;
+                                        this.c1.Checked = true;
+                                        this.c2.Checked = false;
+                                        this.c3.Checked = false;
+                                        break;
+                                    case "Satisfactory":
+                                        this.com.Checked = false;
+                                        this.c1.Checked = false;
+                                        this.c2.Checked = true;
+                                        this.c3.Checked = false;
+                                        break;
+                                    case "UnSatisfactory":
+                                        this.com.Checked = false;
+                                        this.c1.Checked = false;
+                                        this.c2.Checked = false;
+                                        this.c3.Checked = true;
+                                        break;
+                                }
+                                switch (sqlDataReader3["FurnitureAndGrounds"].ToString())
+                                {
+                                    case "Execellent":
+                                        this.fur.Checked = true;
+                                        this.f1.Checked = false;
+                                        this.f2.Checked = false;
+                                        this.f3.Checked = false;
+                                        break;
+                                    case "Very Satisfactory":
+                                        this.fur.Checked = false;
+                                        this.f1.Checked = true;
+                                        this.f2.Checked = false;
+                                        this.f3.Checked = false;
+                                        break;
+                                    case "Satisfactory":
+                                        this.fur.Checked = false;
+                                        this.f1.Checked = false;
+                                        this.f2.Checked = true;
+                                        this.f3.Checked = false;
+                                        break;
+                                    case "UnSatisfactory":
+                                        this.fur.Checked = false;
+                                        this.f1.Checked = false;
+                                        this.f2.Checked = false;
+                                        this.f3.Checked = true;
+                                        break;
+                                }
+                                switch (sqlDataReader3["RadioEquipment"].ToString())
+                                {
+                                    case "Execellent":
+                                        this.radio.Checked = true;
+                                        this.ra1.Checked = false;
+                                        this.ra2.Checked = false;
+                                        this.ra3.Checked = false;
+                                        break;
+                                    case "Very Satisfactory":
+                                        this.radio.Checked = false;
+                                        this.ra1.Checked = true;
+                                        this.ra2.Checked = false;
+                                        this.ra3.Checked = false;
+                                        break;
+                                    case "Satisfactory":
+                                        this.radio.Checked = false;
+                                        this.ra1.Checked = false;
+                                        this.ra2.Checked = true;
+                                        this.ra3.Checked = false;
+                                        break;
+                                    case "UnSatisfactory":
+                                        this.radio.Checked = false;
+                                        this.ra1.Checked = false;
+                                        this.ra2.Checked = false;
+                                        this.ra3.Checked = true;
+                                        break;
+                                }
+                                switch (sqlDataReader3["ComputerPrinterETC"].ToString())
+                                {
+                                    case "Execellent":
+                                        this.computer.Checked = true;
+                                        this.co1.Checked = false;
+                                        this.co2.Checked = false;
+                                        this.co3.Checked = false;
+                                        break;
+                                    case "Very Satisfactory":
+                                        this.computer.Checked = false;
+                                        this.co1.Checked = true;
+                                        this.co2.Checked = false;
+                                        this.co3.Checked = false;
+                                        break;
+                                    case "Satisfactory":
+                                        this.computer.Checked = false;
+                                        this.co1.Checked = false;
+                                        this.co2.Checked = true;
+                                        this.co3.Checked = false;
+                                        break;
+                                    case "UnSatisfactory":
+                                        this.computer.Checked = false;
+                                        this.co1.Checked = false;
+                                        this.co2.Checked = false;
+                                        this.co3.Checked = true;
+                                        break;
+                                }
+                                switch (sqlDataReader3["UniformAndAppearance"].ToString())
+                                {
+                                    case "Execellent":
+                                        this.uni.Checked = true;
+                                        this.u1.Checked = false;
+                                        this.u2.Checked = false;
+                                        this.u3.Checked = false;
+                                        break;
+                                    case "Very Satisfactory":
+                                        this.uni.Checked = false;
+                                        this.u1.Checked = true;
+                                        this.u2.Checked = false;
+                                        this.u3.Checked = false;
+                                        break;
+                                    case "Satisfactory":
+                                        this.uni.Checked = false;
+                                        this.u1.Checked = false;
+                                        this.u2.Checked = true;
+                                        this.u3.Checked = false;
+                                        break;
+                                    case "UnSatisfactory":
+                                        this.uni.Checked = false;
+                                        this.u1.Checked = false;
+                                        this.u2.Checked = false;
+                                        this.u3.Checked = true;
+                                        break;
+                                }
+                                switch (sqlDataReader3["MilitaryCourtesy"].ToString())
+                                {
+                                    case "Execellent":
+                                        this.mil.Checked = true;
+                                        this.mi1.Checked = false;
+                                        this.mi2.Checked = false;
+                                        this.mi3.Checked = false;
+                                        break;
+                                    case "Very Satisfactory":
+                                        this.mil.Checked = false;
+                                        this.mi1.Checked = true;
+                                        this.mi2.Checked = false;
+                                        this.mi3.Checked = false;
+                                        break;
+                                    case "Satisfactory":
+                                        this.mil.Checked = false;
+                                        this.mi1.Checked = false;
+                                        this.mi2.Checked = true;
+                                        this.mi3.Checked = false;
+                                        break;
+                                    case "UnSatisfactory":
+                                        this.mil.Checked = false;
+                                        this.mi1.Checked = false;
+                                        this.mi2.Checked = false;
+                                        this.mi3.Checked = true;
+                                        break;
+                                }
+                                switch (sqlDataReader3["DemeanorAndMorale"].ToString())
+                                {
+                                    case "Execellent":
+                                        this.dem.Checked = true;
+                                        this.d1.Checked = false;
+                                        this.d2.Checked = false;
+                                        this.d3.Checked = false;
+                                        break;
+                                    case "Very Satisfactory":
+                                        this.dem.Checked = false;
+                                        this.d1.Checked = true;
+                                        this.d2.Checked = false;
+                                        this.d3.Checked = false;
+                                        break;
+                                    case "Satisfactory":
+                                        this.dem.Checked = false;
+                                        this.d1.Checked = false;
+                                        this.d2.Checked = true;
+                                        this.d3.Checked = false;
+                                        break;
+                                    case "UnSatisfactory":
+                                        this.dem.Checked = false;
+                                        this.d1.Checked = false;
+                                        this.d2.Checked = false;
+                                        this.d3.Checked = true;
+                                        break;
+                                }
+                                switch (sqlDataReader3["OnTimeAndPreparedForInspection"].ToString())
+                                {
+                                    case "Execellent":
+                                        this.time.Checked = true;
+                                        this.t1.Checked = false;
+                                        this.t2.Checked = false;
+                                        this.t3.Checked = false;
+                                        continue;
+                                    case "Very Satisfactory":
+                                        this.time.Checked = false;
+                                        this.t1.Checked = true;
+                                        this.t2.Checked = false;
+                                        this.t3.Checked = false;
+                                        continue;
+                                    case "Satisfactory":
+                                        this.time.Checked = false;
+                                        this.t1.Checked = false;
+                                        this.t2.Checked = true;
+                                        this.t3.Checked = false;
+                                        continue;
+                                    case "UnSatisfactory":
+                                        this.time.Checked = false;
+                                        this.t1.Checked = false;
+                                        this.t2.Checked = false;
+                                        this.t3.Checked = true;
+                                        continue;
+                                    default:
+                                        continue;
+                                }
                             }
-                            switch (sqlDataReader3["EmpPerformanceMgt"].ToString())
-                            {
-                                case "Execellent":
-                                    this.employee.Checked = true;
-                                    this.e1.Checked = false;
-                                    this.e2.Checked = false;
-                                    this.e3.Checked = false;
-                                    break;
-                                case "Very Satisfactory":
-                                    this.employee.Checked = false;
-                                    this.e1.Checked = true;
-                                    this.e2.Checked = false;
-                                    this.e3.Checked = false;
-                                    break;
-                                case "Satisfactory":
-                                    this.employee.Checked = false;
-                                    this.e1.Checked = false;
-                                    this.e2.Checked = true;
-                                    this.e3.Checked = false;
-                                    break;
-                                case "UnSatisfactory":
-                                    this.employee.Checked = false;
-                                    this.e1.Checked = false;
-                                    this.e2.Checked = false;
-                                    this.e3.Checked = true;
-                                    break;
-                            }
-                            switch (sqlDataReader3["SchAndManAllocation"].ToString())
-                            {
-                                case "Execellent":
-                                    this.manpower.Checked = true;
-                                    this.m1.Checked = false;
-                                    this.m2.Checked = false;
-                                    this.m3.Checked = false;
-                                    break;
-                                case "Very Satisfactory":
-                                    this.manpower.Checked = false;
-                                    this.m1.Checked = true;
-                                    this.m2.Checked = false;
-                                    this.m3.Checked = false;
-                                    break;
-                                case "Satisfactory":
-                                    this.manpower.Checked = false;
-                                    this.m1.Checked = false;
-                                    this.m2.Checked = true;
-                                    this.m3.Checked = false;
-                                    break;
-                                case "UnSatisfactory":
-                                    this.manpower.Checked = false;
-                                    this.m1.Checked = false;
-                                    this.m2.Checked = false;
-                                    this.m3.Checked = true;
-                                    break;
-                            }
-                            switch (sqlDataReader3["SchAndManAllocation"].ToString())
-                            {
-                                case "Execellent":
-                                    this.manpower.Checked = true;
-                                    this.m1.Checked = false;
-                                    this.m2.Checked = false;
-                                    this.m3.Checked = false;
-                                    break;
-                                case "Very Satisfactory":
-                                    this.manpower.Checked = false;
-                                    this.m1.Checked = true;
-                                    this.m2.Checked = false;
-                                    this.m3.Checked = false;
-                                    break;
-                                case "Satisfactory":
-                                    this.manpower.Checked = false;
-                                    this.m1.Checked = false;
-                                    this.m2.Checked = true;
-                                    this.m3.Checked = false;
-                                    break;
-                                case "UnSatisfactory":
-                                    this.manpower.Checked = false;
-                                    this.m1.Checked = false;
-                                    this.m2.Checked = false;
-                                    this.m3.Checked = true;
-                                    break;
-                            }
-                            switch (sqlDataReader3["ComCenterCleanAndMain"].ToString())
-                            {
-                                case "Execellent":
-                                    this.com.Checked = true;
-                                    this.c1.Checked = false;
-                                    this.c2.Checked = false;
-                                    this.c3.Checked = false;
-                                    break;
-                                case "Very Satisfactory":
-                                    this.com.Checked = false;
-                                    this.c1.Checked = true;
-                                    this.c2.Checked = false;
-                                    this.c3.Checked = false;
-                                    break;
-                                case "Satisfactory":
-                                    this.com.Checked = false;
-                                    this.c1.Checked = false;
-                                    this.c2.Checked = true;
-                                    this.c3.Checked = false;
-                                    break;
-                                case "UnSatisfactory":
-                                    this.com.Checked = false;
-                                    this.c1.Checked = false;
-                                    this.c2.Checked = false;
-                                    this.c3.Checked = true;
-                                    break;
-                            }
-                            switch (sqlDataReader3["FurnitureAndGrounds"].ToString())
-                            {
-                                case "Execellent":
-                                    this.fur.Checked = true;
-                                    this.f1.Checked = false;
-                                    this.f2.Checked = false;
-                                    this.f3.Checked = false;
-                                    break;
-                                case "Very Satisfactory":
-                                    this.fur.Checked = false;
-                                    this.f1.Checked = true;
-                                    this.f2.Checked = false;
-                                    this.f3.Checked = false;
-                                    break;
-                                case "Satisfactory":
-                                    this.fur.Checked = false;
-                                    this.f1.Checked = false;
-                                    this.f2.Checked = true;
-                                    this.f3.Checked = false;
-                                    break;
-                                case "UnSatisfactory":
-                                    this.fur.Checked = false;
-                                    this.f1.Checked = false;
-                                    this.f2.Checked = false;
-                                    this.f3.Checked = true;
-                                    break;
-                            }
-                            switch (sqlDataReader3["RadioEquipment"].ToString())
-                            {
-                                case "Execellent":
-                                    this.radio.Checked = true;
-                                    this.ra1.Checked = false;
-                                    this.ra2.Checked = false;
-                                    this.ra3.Checked = false;
-                                    break;
-                                case "Very Satisfactory":
-                                    this.radio.Checked = false;
-                                    this.ra1.Checked = true;
-                                    this.ra2.Checked = false;
-                                    this.ra3.Checked = false;
-                                    break;
-                                case "Satisfactory":
-                                    this.radio.Checked = false;
-                                    this.ra1.Checked = false;
-                                    this.ra2.Checked = true;
-                                    this.ra3.Checked = false;
-                                    break;
-                                case "UnSatisfactory":
-                                    this.radio.Checked = false;
-                                    this.ra1.Checked = false;
-                                    this.ra2.Checked = false;
-                                    this.ra3.Checked = true;
-                                    break;
-                            }
-                            switch (sqlDataReader3["ComputerPrinterETC"].ToString())
-                            {
-                                case "Execellent":
-                                    this.computer.Checked = true;
-                                    this.co1.Checked = false;
-                                    this.co2.Checked = false;
-                                    this.co3.Checked = false;
-                                    break;
-                                case "Very Satisfactory":
-                                    this.computer.Checked = false;
-                                    this.co1.Checked = true;
-                                    this.co2.Checked = false;
-                                    this.co3.Checked = false;
-                                    break;
-                                case "Satisfactory":
-                                    this.computer.Checked = false;
-                                    this.co1.Checked = false;
-                                    this.co2.Checked = true;
-                                    this.co3.Checked = false;
-                                    break;
-                                case "UnSatisfactory":
-                                    this.computer.Checked = false;
-                                    this.co1.Checked = false;
-                                    this.co2.Checked = false;
-                                    this.co3.Checked = true;
-                                    break;
-                            }
-                            switch (sqlDataReader3["UniformAndAppearance"].ToString())
-                            {
-                                case "Execellent":
-                                    this.uni.Checked = true;
-                                    this.u1.Checked = false;
-                                    this.u2.Checked = false;
-                                    this.u3.Checked = false;
-                                    break;
-                                case "Very Satisfactory":
-                                    this.uni.Checked = false;
-                                    this.u1.Checked = true;
-                                    this.u2.Checked = false;
-                                    this.u3.Checked = false;
-                                    break;
-                                case "Satisfactory":
-                                    this.uni.Checked = false;
-                                    this.u1.Checked = false;
-                                    this.u2.Checked = true;
-                                    this.u3.Checked = false;
-                                    break;
-                                case "UnSatisfactory":
-                                    this.uni.Checked = false;
-                                    this.u1.Checked = false;
-                                    this.u2.Checked = false;
-                                    this.u3.Checked = true;
-                                    break;
-                            }
-                            switch (sqlDataReader3["MilitaryCourtesy"].ToString())
-                            {
-                                case "Execellent":
-                                    this.mil.Checked = true;
-                                    this.mi1.Checked = false;
-                                    this.mi2.Checked = false;
-                                    this.mi3.Checked = false;
-                                    break;
-                                case "Very Satisfactory":
-                                    this.mil.Checked = false;
-                                    this.mi1.Checked = true;
-                                    this.mi2.Checked = false;
-                                    this.mi3.Checked = false;
-                                    break;
-                                case "Satisfactory":
-                                    this.mil.Checked = false;
-                                    this.mi1.Checked = false;
-                                    this.mi2.Checked = true;
-                                    this.mi3.Checked = false;
-                                    break;
-                                case "UnSatisfactory":
-                                    this.mil.Checked = false;
-                                    this.mi1.Checked = false;
-                                    this.mi2.Checked = false;
-                                    this.mi3.Checked = true;
-                                    break;
-                            }
-                            switch (sqlDataReader3["DemeanorAndMorale"].ToString())
-                            {
-                                case "Execellent":
-                                    this.dem.Checked = true;
-                                    this.d1.Checked = false;
-                                    this.d2.Checked = false;
-                                    this.d3.Checked = false;
-                                    break;
-                                case "Very Satisfactory":
-                                    this.dem.Checked = false;
-                                    this.d1.Checked = true;
-                                    this.d2.Checked = false;
-                                    this.d3.Checked = false;
-                                    break;
-                                case "Satisfactory":
-                                    this.dem.Checked = false;
-                                    this.d1.Checked = false;
-                                    this.d2.Checked = true;
-                                    this.d3.Checked = false;
-                                    break;
-                                case "UnSatisfactory":
-                                    this.dem.Checked = false;
-                                    this.d1.Checked = false;
-                                    this.d2.Checked = false;
-                                    this.d3.Checked = true;
-                                    break;
-                            }
-                            switch (sqlDataReader3["OnTimeAndPreparedForInspection"].ToString())
-                            {
-                                case "Execellent":
-                                    this.time.Checked = true;
-                                    this.t1.Checked = false;
-                                    this.t2.Checked = false;
-                                    this.t3.Checked = false;
-                                    continue;
-                                case "Very Satisfactory":
-                                    this.time.Checked = false;
-                                    this.t1.Checked = true;
-                                    this.t2.Checked = false;
-                                    this.t3.Checked = false;
-                                    continue;
-                                case "Satisfactory":
-                                    this.time.Checked = false;
-                                    this.t1.Checked = false;
-                                    this.t2.Checked = true;
-                                    this.t3.Checked = false;
-                                    continue;
-                                case "UnSatisfactory":
-                                    this.time.Checked = false;
-                                    this.t1.Checked = false;
-                                    this.t2.Checked = false;
-                                    this.t3.Checked = true;
-                                    continue;
-                                default:
-                                    continue;
-                            }
-                        }
-                        connection3.Close();
-                        this.filltable();
+                            connection3.Close();
+                            this.filltable();
                         #endregion
+                        }
                     }
                     else if (str2 != "GST113" || str2 != "PSM021" || str2 != "PSM022" || str2 != "17817")
                     {
