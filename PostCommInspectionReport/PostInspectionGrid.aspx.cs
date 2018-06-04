@@ -55,7 +55,7 @@ namespace PostCommInspectionReport
                     GetData(lblTroop.Text);
                     break;
                 default:
-                    if (employeePostionNUmber == "00105296" || currentUser== "ssweatman")
+                    if (employeePostionNUmber == "00105296" )
                     {
                         var mycon2 = new SqlConnection(_spConnect);
                         DataSet dataSet = new DataSet();

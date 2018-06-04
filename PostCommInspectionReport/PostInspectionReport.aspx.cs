@@ -29,8 +29,8 @@ namespace PostCommInspectionReport
                 string currentUser = User.Identity.Name.Substring(6);
                 var mycon = new SqlConnection(_dbConn);
                 var cmd = new SqlCommand(
-                    @"select * from ViewInspection where sAMAccountName='jstultz'",
-                      //@"select * from ViewInspection where sAMAccountName='" + currentUser + "'",
+                    //@"select * from ViewInspection where sAMAccountName='jstultz'",
+                      @"select * from ViewInspection where sAMAccountName='" + currentUser + "'",
                     mycon);
                 mycon.Open();
                 var read = cmd.ExecuteReader();
@@ -706,7 +706,7 @@ namespace PostCommInspectionReport
                     {
                         var util = new Utils();
                         var formattedEmailAddress = strEmailTo + "@gsp.net";
-                        // strEmailTo = "stevenjames@gsp.net";
+                        strEmailTo = "ssweatman@gsp.net";
                         util.SendEmail(formattedEmailAddress, lblReportId.Text);
                         Response.Redirect("~/PostInspectionGrid.aspx");
                     }
@@ -729,7 +729,7 @@ namespace PostCommInspectionReport
                 {
                     var util = new Utils();
                     var formattedEmailAddress = strEmailTo + "@gsp.net";
-                    // strEmailTo = "stevenjames@gsp.net";
+                    formattedEmailAddress = "ssweatman@gsp.net";
                     util.SendEmail(formattedEmailAddress, lblReportId.Text);
                     Response.Redirect("~/PostInspectionGrid.aspx");
                 }
@@ -1997,7 +1997,8 @@ namespace PostCommInspectionReport
             utils.SendEmail(strEmailTo,ReportID);
             string str = "10.0.0.14";
             string from = "donotreply@gsp.net";
-            string messageText = "Inspection Report Test E-Mail\nPlease click the link below:\n\nhttp://10.0.0.109/PostInspectionReport/PostInspectionGrid.aspx  --- ReportID: " + ReportID;
+            //string messageText = "Inspection Report Test E-Mail\nPlease click the link below:\n\nhttp://10.0.0.109/PostInspectionReport/PostInspectionGrid.aspx  --- ReportID: " + ReportID;
+            string messageText = "Inspection Report Test E-Mail\nPlease click the link below:\n\nhttp://localhost:51912/PostInspectionReport/PostInspectionGrid.aspx  --- ReportID: " + ReportID;
             string subject = "Inspection_Report_Approval_Email_Test";
             SmtpMail.SmtpServer = str;
             SmtpMail.Send(from, strEmailTo, subject, messageText);
